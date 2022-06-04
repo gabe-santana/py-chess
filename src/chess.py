@@ -23,6 +23,8 @@ class Chess:
     
     def main(self):
         p.init()
+        p.display.set_caption('PyChess Engine')
+
         screen = p.display.set_mode((self.width, self.height))
         clk = p.time.Clock()
         screen.fill(p.Color('white'))
@@ -44,7 +46,6 @@ class Chess:
     def update_gs(self, screen, gs):
         self.update_board(screen)
         self.update_pieces(screen, gs.board)
-        
 
     def update_board(self, screen):
         colors = [p.Color(214, 193, 161), p.Color(147, 111, 81)]
@@ -59,6 +60,3 @@ class Chess:
                 piece = board[r][c]
                 if piece:
                     screen.blit(self.images[piece], (c * self.sq_size, r * self.sq_size))
-                    
-if __name__ == '__main__':
-    Chess().main()
